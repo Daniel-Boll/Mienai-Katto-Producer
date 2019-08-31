@@ -41,9 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: background
+  - name: "ch\xE3o"
     uniqueID: 153049101
+    locked: 0
+  - name: parede
+    uniqueID: 3550254393
     locked: 0
   - name: player
     uniqueID: 4261749241
+    locked: 0
+  - name: oculta
+    uniqueID: 650038437
     locked: 0
