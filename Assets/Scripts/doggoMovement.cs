@@ -17,6 +17,8 @@ public class doggoMovement : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        int dog_type = Random.Range(0, 2);
+        anim.SetInteger("dog_type", dog_type);
     }
 
     // Update is called once per frame
