@@ -10,19 +10,16 @@ public class doorScript : MonoBehaviour{
     string scene2 = "Scene2";
     float distanceFromCamera = 10f;
     
-    void Awake(){
-        if (Instace == null){
-            Instace = this;
-            DontDestroyOnLoad(ply);
-        }else{
-            Destroy(gameObject);
-        }
-    } 
+    void Start(){
+        ply = GameObject.FindGameObjectWithTag("Player");
+    }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if (other.name == ply.name) {
-            Debug.Log("Happening");
-            SceneManager.LoadScene(scene2);
+    void OnCollisionEnter2D(Collision2D other){
+        if (other.gameObject.name == ply.name) {
+            if(other.gameObject.GetComponent<playerMovement>().haveKey){
+                SceneManager.LoadScene(scene2);
+                other.gameObject.GetComponent<playerMovement>().haveKey = false;
+            }
         }
  }
 
