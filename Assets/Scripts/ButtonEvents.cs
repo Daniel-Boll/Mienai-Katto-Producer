@@ -9,6 +9,10 @@ public class ButtonEvents : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ContinueEvent() {
+        SceneManager.LoadScene(1);
+    }
+
     public void ExitEvent() {
         Application.Quit();
     }
