@@ -28,9 +28,9 @@ public class playerMovement : MonoBehaviour {
         }else
         if(movement.y == -1){
             animator.SetInteger("direction", 0);
-        }/*else {
+        }else {
             animator.SetInteger("direction", 4);
-        }*/
+        }
 
 	}
 
