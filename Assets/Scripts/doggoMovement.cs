@@ -3,19 +3,38 @@ using System.Collections;
 
 public class doggoMovement : MonoBehaviour {
 
-    public float moveSpeed = .5f;
-    public Rigidbody2D rb;
+    [SerializeField] float moveSpeed = .5f;
+    [SerializeField] [Range(0.5f, 5f)] float minInterval;
+    [SerializeField] [Range(0.5f, 5f)] float maxInterval;
+    /*[SerializeField]*/ float interval = 0;
+    Rigidbody2D rb;
+    Animator anim;
+    SpriteRenderer sr;
 
-    Vector2 movement;
+    /*[SerializeField]*/ Vector2 movement;
 
-	// Update is called once per frame
-	void Update () {
-        movement.x =  Random.Range (-1.0f, 1.0f);
-        // createRoutine
-        movement.y =  Random.Range (-1.0f, .0f);
+    void Start() {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+    }
+
+    // Update is called once per frame
+    void Update () {
+        interval -= Time.deltaTime;
+        if (interval <= 0) {
+            movement.x = Random.Range(-1.0f, 1.0f);
+            movement.y = Random.Range(-1.0f, 1.0f);
+            interval = Random.Range(minInterval, minInterval + maxInterval);
+            if (movement.x > 0) {
+                sr.flipX = true;
+            } else {
+                sr.flipX = false;
+            }
+        }
 	}
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-     }
+    }
 }
