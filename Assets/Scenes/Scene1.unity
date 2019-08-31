@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 1728587359}
   - component: {fileID: 1728587358}
   - component: {fileID: 1728587362}
+  - component: {fileID: 1728587363}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -857,6 +858,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 1728587358}
+--- !u!111 &1728587363
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728587357}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1759881544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,16 +7171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7877195901502921647, guid: 8eea9df489cb007458634e76436835b1,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: -33218055
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877195901502921647, guid: 8eea9df489cb007458634e76436835b1,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7877195901502921632, guid: 8eea9df489cb007458634e76436835b1,
         type: 3}
       propertyPath: minInterval
@@ -7174,6 +7180,16 @@ PrefabInstance:
         type: 3}
       propertyPath: maxInterval
       value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877195901502921647, guid: 8eea9df489cb007458634e76436835b1,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -33218055
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877195901502921647, guid: 8eea9df489cb007458634e76436835b1,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eea9df489cb007458634e76436835b1, type: 3}
