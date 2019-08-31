@@ -41,6 +41,9 @@ public class playerMovement : MonoBehaviour {
         }else {
             animator.SetInteger("direction", 4);
         }
+        
+
+        
 
 	}
 
