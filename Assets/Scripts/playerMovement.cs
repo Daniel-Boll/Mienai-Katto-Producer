@@ -14,8 +14,11 @@ public class playerMovement : MonoBehaviour {
     private int maxHeart = 0;
     public bool vision = false;
     SpriteRenderer falaSR;
+    SpriteRenderer sr;
     float falaCooldown = 0f;
     GameManager gm;
+    bool invencivel = false;
+    float invencivelCoolDown = 1f;
 
     void Awake(){
         int n = GameObject.FindGameObjectsWithTag("Player").Length;
@@ -29,6 +32,7 @@ public class playerMovement : MonoBehaviour {
     void Start() {
         animator = GetComponent<Animator>();
         falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindObjectOfType<GameManager>();
         gm.SetStartHealth(heart);
         gm.updateHealth(heart);
@@ -79,6 +83,15 @@ public class playerMovement : MonoBehaviour {
         } else {
             falaSR.color = new Color(1, 1, 1, 0);
         }
+
+        if (invencivel) {
+            invencivelCoolDown -= Time.deltaTime;
+        }
+        if (invencivelCoolDown <= 0) { 
+            invencivel = false;
+            invencivelCoolDown = 1f;
+            sr.color = new Color(1, 1, 1, 1);
+        }
 	}
     
     public void curarVida(){
@@ -87,8 +100,12 @@ public class playerMovement : MonoBehaviour {
     }
 
     public void causarDano() {
-        heart--;
-        gm.updateHealth(heart);
+        if (!invencivel) {
+            heart--;
+            gm.updateHealth(heart);
+            invencivel = true;
+            sr.color = new Color(1, 0.2f, 0.2f, 0.8f);
+        }
     }
 
     public void increaseTimer(){
