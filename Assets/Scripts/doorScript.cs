@@ -17,15 +17,14 @@ public class doorScript : MonoBehaviour{
 
     void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.name == ply.name) {
-            if(other.gameObject.GetComponent<playerMovement>().haveKey && needKey){
-                SceneManager.LoadScene(scene);
-                Debug.Log("Do destroying key");
-                other.gameObject.GetComponent<playerMovement>().haveKey = false;
+            if(needKey){
+                if(other.gameObject.GetComponent<playerMovement>().haveKey){
+                    SceneManager.LoadScene(scene);
+                    other.gameObject.GetComponent<playerMovement>().haveKey = false;
+                }
             }else{
-                Debug.Log("Not destroying key");
-                SceneManager.LoadScene(scene);
+                 SceneManager.LoadScene(scene);
             }
-        }
- }
-
+        }  
+    }
 }
