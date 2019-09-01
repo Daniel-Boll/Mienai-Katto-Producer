@@ -20,7 +20,9 @@ public class itemScript : MonoBehaviour{
             if(which == "time"){
                 // insert time
             }
-            if(which == "life") other.GetComponent<playerMovement>().heart = 3;
+            if(which == "life") {
+                other.GetComponent<playerMovement>().curarVida();
+            }
             
             Destroy(gameObject);
         }

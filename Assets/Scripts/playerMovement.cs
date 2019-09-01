@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour {
     Vector2 movement;
     public bool haveKey = false;
     public int heart = 3;
+    private int maxHeart = 0;
     public bool vision = false;
     SpriteRenderer falaSR;
     float falaCooldown = 0f;
@@ -29,6 +30,7 @@ public class playerMovement : MonoBehaviour {
         falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
         GameObject.FindObjectOfType<GameManager>().SetStartHealth(heart);
         GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+        maxHeart = heart;
     }
 
 	// Update is called once per frame
@@ -79,6 +81,11 @@ public class playerMovement : MonoBehaviour {
 
     public void causarDano() {
         heart--;
+        GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+    }
+
+    public void curarVida(){
+        heart = maxHeart;
         GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
     }
 
