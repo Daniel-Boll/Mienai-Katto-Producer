@@ -6,7 +6,7 @@ public class doggoMovement : MonoBehaviour {
     [SerializeField] float moveSpeed = .5f;
     [SerializeField] [Range(0.5f, 5f)] float minInterval;
     [SerializeField] [Range(0.5f, 5f)] float maxInterval;
-    [SerializeField] int singleMovement;
+    // [SerializeField] int singleMovement;
     /*[SerializeField]*/ float interval = 0;
     Rigidbody2D rb;
     Animator anim;
@@ -39,5 +39,12 @@ public class doggoMovement : MonoBehaviour {
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D other){
+        if (other.gameObject.name == GameObject.FindGameObjectsWithTag("Player")[0].name){
+            Debug.Log("Catchoro has touched the motherfucking player");
+            other.gameObject.GetComponent<playerMovement>().heart--;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class playerMovement : MonoBehaviour {
     Animator animator;
     Vector2 movement;
     public bool haveKey = false;
+    public int heart = 3;
+
     void Awake(){
         int n = GameObject.FindGameObjectsWithTag("Player").Length;
         if (n == 1){
@@ -41,7 +44,10 @@ public class playerMovement : MonoBehaviour {
             animator.SetInteger("direction", 4);
         }
         
-
+        if(heart == 0){
+            SceneManager.LoadScene("GameOver");
+            heart = 3;
+        }
         
 
 	}
