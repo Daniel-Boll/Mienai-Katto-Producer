@@ -7,7 +7,7 @@ public class doorScript : MonoBehaviour{
 
     public static doorScript Instace;
     public GameObject ply;
-    string scene2 = "Scene2";
+    [SerializeField] string scene2 = "Scene2";
     float distanceFromCamera = 10f;
     
     void Start(){
