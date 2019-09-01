@@ -10,6 +10,8 @@ public class playerMovement : MonoBehaviour {
     Vector2 movement;
     public bool haveKey = false;
     public int heart = 3;
+    SpriteRenderer falaSR;
+    float falaCooldown = 0f;
 
     void Awake(){
         int n = GameObject.FindGameObjectsWithTag("Player").Length;
@@ -22,6 +24,7 @@ public class playerMovement : MonoBehaviour {
 
     void Start(){
         animator = GetComponent<Animator>();
+        falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
     }
 
 	// Update is called once per frame
@@ -48,11 +51,26 @@ public class playerMovement : MonoBehaviour {
             SceneManager.LoadScene("GameOver");
             heart = 3;
         }
-        
 
+        if (Input.GetKeyDown(KeyCode.Space) && falaCooldown<=0) {
+            falaCooldown = 0.8f;
+            //ver os alunos que estão por perto
+            AlunoMovement[] alunos = Object.FindObjectsOfType<AlunoMovement>();
+            foreach (AlunoMovement aluno in alunos) {
+                if (aluno.IsCloseEnought()) {
+                    aluno.GradeRegected();
+                }
+            }
+        }
+        if (falaCooldown > 0) {
+            falaCooldown -= Time.deltaTime;
+            falaSR.color = new Color(1, 1, 1, 1);
+        } else {
+            falaSR.color = new Color(1, 1, 1, 0);
+        }
 	}
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-     }
+    }
 }
