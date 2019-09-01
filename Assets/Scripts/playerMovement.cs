@@ -59,7 +59,6 @@ public class playerMovement : MonoBehaviour {
             gm.SetLastCorridor(SceneManager.GetActiveScene().buildIndex);
             heart = 3;
             gm.updateHealth(heart);
-            Destroy(gm.gameObject);
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");
         }
@@ -90,6 +89,10 @@ public class playerMovement : MonoBehaviour {
     public void causarDano() {
         heart--;
         gm.updateHealth(heart);
+    }
+
+    public void increaseTimer(){
+        gm.updateTimer(30f);        
     }
 
     public void GetKey() {

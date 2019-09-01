@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour
         return lastCorridor;
     }
 
+    public void updateTimer(float increase){
+        time += increase;
+    }
+
     internal void updateHealth(int health) {
         //atualiza os corações na UI
         for(int i = 0;i< startHealth; i++) {

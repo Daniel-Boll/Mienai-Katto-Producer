@@ -18,7 +18,7 @@ public class itemScript : MonoBehaviour{
             if(which == "key") other.GetComponent<playerMovement>().GetKey(); 
             if(which == "eye") other.GetComponent<playerMovement>().vision = true;
             if(which == "time"){
-                // insert time
+                other.GetComponent<playerMovement>().increaseTimer();
             }
             if(which == "life") {
                 other.GetComponent<playerMovement>().curarVida();
