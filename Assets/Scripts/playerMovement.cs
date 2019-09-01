@@ -14,6 +14,7 @@ public class playerMovement : MonoBehaviour {
     public bool vision = false;
     SpriteRenderer falaSR;
     float falaCooldown = 0f;
+    GameManager gm;
 
     void Awake(){
         int n = GameObject.FindGameObjectsWithTag("Player").Length;
@@ -24,11 +25,12 @@ public class playerMovement : MonoBehaviour {
         }
     } 
 
-    void Start(){
+    void Start() {
         animator = GetComponent<Animator>();
         falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
-        GameObject.FindObjectOfType<GameManager>().SetStartHealth(heart);
-        GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+        gm = GameObject.FindObjectOfType<GameManager>();
+        gm.SetStartHealth(heart);
+        gm.updateHealth(heart);
     }
 
 	// Update is called once per frame
@@ -51,10 +53,11 @@ public class playerMovement : MonoBehaviour {
             animator.SetInteger("direction", 4);
         }
         
-        if(heart == 0){
-            GameObject.FindObjectOfType<GameManager>().SetLastCorridor(SceneManager.GetActiveScene().buildIndex);
+        if(heart == 0) {
+            gm.SetLastCorridor(SceneManager.GetActiveScene().buildIndex);
             heart = 3;
-            GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+            gm.updateHealth(heart);
+            Destroy(gm.gameObject);
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");
         }
@@ -79,8 +82,18 @@ public class playerMovement : MonoBehaviour {
 
     public void causarDano() {
         heart--;
-        GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+        gm.updateHealth(heart);
     }
+
+    public void GetKey() {
+        GetKey(true);
+    }
+
+    public void GetKey(bool key) {
+        haveKey = key;
+        gm.UpdateHaveKey(haveKey);
+    }
+
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);

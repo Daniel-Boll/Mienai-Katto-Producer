@@ -15,7 +15,7 @@ public class itemScript : MonoBehaviour{
     void OnTriggerEnter2D(Collider2D other){
         if (other.name == "Character") {
             Debug.Log("Pegando item");
-            if(which == "key") other.GetComponent<playerMovement>().haveKey = true;
+            if(which == "key") other.GetComponent<playerMovement>().GetKey(); 
             if(which == "eye") other.GetComponent<playerMovement>().vision = true;
             if(which == "time"){
                 // insert time
