@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 public class playerMovement : MonoBehaviour {
 
@@ -25,6 +26,8 @@ public class playerMovement : MonoBehaviour {
     void Start(){
         animator = GetComponent<Animator>();
         falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
+        GameObject.FindObjectOfType<GameManager>().SetStartHealth(heart);
+        GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
     }
 
 	// Update is called once per frame
@@ -48,14 +51,17 @@ public class playerMovement : MonoBehaviour {
         }
         
         if(heart == 0){
-            SceneManager.LoadScene("GameOver");
+            GameObject.FindObjectOfType<GameManager>().SetLastCorridor(SceneManager.GetActiveScene().buildIndex);
             heart = 3;
+            GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+            Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && falaCooldown<=0) {
             falaCooldown = 0.8f;
             //ver os alunos que estão por perto
-            AlunoMovement[] alunos = Object.FindObjectsOfType<AlunoMovement>();
+            AlunoMovement[] alunos = GameObject.FindObjectsOfType<AlunoMovement>();
             foreach (AlunoMovement aluno in alunos) {
                 if (aluno.IsCloseEnought()) {
                     aluno.GradeRegected();
@@ -69,6 +75,11 @@ public class playerMovement : MonoBehaviour {
             falaSR.color = new Color(1, 1, 1, 0);
         }
 	}
+
+    public void causarDano() {
+        heart--;
+        GameObject.FindObjectOfType<GameManager>().updateHealth(heart);
+    }
 
     void FixedUpdate(){
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
