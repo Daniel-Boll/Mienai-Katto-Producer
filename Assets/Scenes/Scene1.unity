@@ -742,7 +742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ply: {fileID: 1728587357}
-  scene2: Scene2
+  scene: Scene2
+  needKey: 1
 --- !u!50 &1759881548
 Rigidbody2D:
   serializedVersion: 4

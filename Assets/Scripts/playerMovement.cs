@@ -8,7 +8,6 @@ public class playerMovement : MonoBehaviour {
     Animator animator;
     Vector2 movement;
     public bool haveKey = false;
-
     void Awake(){
         int n = GameObject.FindGameObjectsWithTag("Player").Length;
         if (n == 1){

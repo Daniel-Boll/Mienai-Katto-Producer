@@ -6,6 +6,7 @@ public class doggoMovement : MonoBehaviour {
     [SerializeField] float moveSpeed = .5f;
     [SerializeField] [Range(0.5f, 5f)] float minInterval;
     [SerializeField] [Range(0.5f, 5f)] float maxInterval;
+    [SerializeField] int singleMovement;
     /*[SerializeField]*/ float interval = 0;
     Rigidbody2D rb;
     Animator anim;

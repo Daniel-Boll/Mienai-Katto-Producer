@@ -7,7 +7,8 @@ public class doorScript : MonoBehaviour{
 
     public static doorScript Instace;
     public GameObject ply;
-    [SerializeField] string scene2 = "Scene2";
+    [SerializeField] string scene = "Scene2";
+    [SerializeField] bool needKey = true;
     float distanceFromCamera = 10f;
     
     void Start(){
@@ -16,11 +17,14 @@ public class doorScript : MonoBehaviour{
 
     void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.name == ply.name) {
-            if(other.gameObject.GetComponent<playerMovement>().haveKey){
-                SceneManager.LoadScene(scene2);
-                other.gameObject.GetComponent<playerMovement>().haveKey = false;
+            if(needKey){
+                if(other.gameObject.GetComponent<playerMovement>().haveKey){
+                    SceneManager.LoadScene(scene);
+                    other.gameObject.GetComponent<playerMovement>().haveKey = false;
+                }
+            }else{
+                 SceneManager.LoadScene(scene);
             }
-        }
- }
-
+        }  
+    }
 }
