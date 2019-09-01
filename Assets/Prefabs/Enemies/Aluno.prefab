@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  closeEnought: 0.6
+  closeEnought: 0.8
   distance: 0
   gibeNota: 1
   angle: 0

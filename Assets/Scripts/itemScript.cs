@@ -9,7 +9,7 @@ public class itemScript : MonoBehaviour{
     public GameObject ply;
     float distanceFromCamera = 10f;
     // public Text text;
-    public Collider2D door_collider;
+    // public Collider2D door_collider;
 
     void OnTriggerEnter2D(Collider2D other){
         if (other.name == "Character") {
