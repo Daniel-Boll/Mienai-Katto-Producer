@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject FullHeart;
     [SerializeField] GameObject EmptyHeart;
+    [SerializeField] GameObject HaveKey;
     GameObject[] hearts;
 
     void Awake() {
@@ -44,6 +46,16 @@ public class GameManager : MonoBehaviour
             }
             hearts[i].transform.position = new Vector3(x, canvas.pixelRect.height+25, 0);
 
+        }
+    }
+
+    public void UpdateHaveKey(bool haveKey) {
+        if (HaveKey) {
+            if (haveKey) {
+                HaveKey.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            } else { 
+                HaveKey.GetComponent<Image>().color = new Color(1, 1, 1, 0.25f);
+            }
         }
     }
 
