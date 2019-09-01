@@ -5,7 +5,7 @@ using UnityEngine;
 public class AlunoMovement : MonoBehaviour {
 
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float closeEnought = 0.2f;
+    [SerializeField] float closeEnought = .6f;
     [SerializeField] float distance;
     [SerializeField] bool gibeNota = true;
     private Transform profTransform;
@@ -23,8 +23,6 @@ public class AlunoMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
-
     }
 
     void FixedUpdate() {
