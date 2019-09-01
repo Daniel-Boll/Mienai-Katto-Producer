@@ -8,10 +8,16 @@ public class GameManager : MonoBehaviour
 {
     int lastCorridor = 1;
     int startHealth = 0;
+    [Header("Game Manager Configs")]
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject FullHeart;
     [SerializeField] GameObject EmptyHeart;
     [SerializeField] GameObject HaveKey;
+    [SerializeField] Text TextTime;
+
+    [Header("Game Configs")]
+    [SerializeField] float time = 300;//seconds
+
     GameObject[] hearts;
 
     void Awake() {
@@ -21,6 +27,11 @@ public class GameManager : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
+    }
+
+    void Update() {
+        time -= Time.deltaTime;
+        TextTime.text = time.ToString("000.00");
     }
 
     public void SetLastCorridor(int index) {
