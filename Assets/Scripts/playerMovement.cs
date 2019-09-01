@@ -32,6 +32,7 @@ public class playerMovement : MonoBehaviour {
         gm = GameObject.FindObjectOfType<GameManager>();
         gm.SetStartHealth(heart);
         gm.updateHealth(heart);
+        maxHeart = heart;
     }
 
 	// Update is called once per frame
@@ -80,6 +81,11 @@ public class playerMovement : MonoBehaviour {
             falaSR.color = new Color(1, 1, 1, 0);
         }
 	}
+    
+    public void curarVida(){
+        heart = maxHeart;
+        gm.updateHealth(heart);
+    }
 
     public void causarDano() {
         heart--;
