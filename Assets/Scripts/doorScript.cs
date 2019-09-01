@@ -20,7 +20,7 @@ public class doorScript : MonoBehaviour{
             if(needKey){
                 if(other.gameObject.GetComponent<playerMovement>().haveKey){
                     SceneManager.LoadScene(scene);
-                    other.gameObject.GetComponent<playerMovement>().haveKey = false;
+                    other.gameObject.GetComponent<playerMovement>().GetKey(false);
                 }
             }else{
                  SceneManager.LoadScene(scene);
