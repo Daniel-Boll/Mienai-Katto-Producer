@@ -48,9 +48,15 @@ TagManager:
   - name: parede
     uniqueID: 3550254393
     locked: 0
+  - name: oculta
+    uniqueID: 650038437
+    locked: 0
+  - name: cadeira
+    uniqueID: 2189590765
+    locked: 0
   - name: player
     uniqueID: 4261749241
     locked: 0
-  - name: oculta
-    uniqueID: 650038437
+  - name: carteira
+    uniqueID: 195787539
     locked: 0
