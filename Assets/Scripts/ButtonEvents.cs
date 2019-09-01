@@ -7,13 +7,16 @@ public class ButtonEvents : MonoBehaviour
 {
     int lastIndex = 1;
 
+    void Start() {
+        lastIndex = ((GameManager)GameObject.FindObjectOfType<GameManager>()).GetLastCorridor();
+        Destroy(((GameManager)GameObject.FindObjectOfType<GameManager>()).gameObject);
+    }
 
     public void StartEvent() {
         SceneManager.LoadScene(1);
     }
 
     public void ContinueEvent() {
-        lastIndex = ((GameManager)GameObject.FindObjectOfType<GameManager>()).GetLastCorridor();
         SceneManager.LoadScene(lastIndex);
     }
 
