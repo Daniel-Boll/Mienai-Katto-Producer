@@ -44,7 +44,7 @@ public class doggoMovement : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.name == GameObject.FindGameObjectsWithTag("Player")[0].name){
             Debug.Log("Catchoro has touched the motherfucking player");
-            other.gameObject.GetComponent<playerMovement>().heart--;
+            other.gameObject.GetComponent<playerMovement>().causarDano();
         }
     }
 }

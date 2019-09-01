@@ -1,10 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     int lastCorridor = 1;
+    int startHealth = 0;
+    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject FullHeart;
+    [SerializeField] GameObject EmptyHeart;
+    GameObject[] hearts;
 
     void Awake() {
         int n = GameObject.FindObjectsOfType<GameManager>().Length;
@@ -14,7 +20,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public void SetLastCorridor(int index) {
         lastCorridor = index;
     }
@@ -23,4 +29,26 @@ public class GameManager : MonoBehaviour
         return lastCorridor;
     }
 
+    internal void updateHealth(int health) {
+        //atualiza os corações na UI
+        for(int i = 0;i< startHealth; i++) {
+            float x = (i + 1) * 20 - 50;
+            if (hearts[i] != null) {
+                Destroy(hearts[i].gameObject);
+                hearts[i] = null;
+            }
+            if (i < health) {
+                hearts[i] = Instantiate<GameObject>( FullHeart, Vector3.zero, Quaternion.identity, canvas.transform);
+            } else {
+                hearts[i] = Instantiate<GameObject>(EmptyHeart, Vector3.zero, Quaternion.identity, canvas.transform);
+            }
+            hearts[i].transform.position = new Vector3(x, canvas.pixelRect.height+25, 0);
+
+        }
+    }
+
+    public void SetStartHealth(int heart) {
+        startHealth = heart;
+        hearts = new GameObject[startHealth];
+    }
 }
