@@ -7,6 +7,7 @@ public class itemScript : MonoBehaviour{
 
     public static itemScript Instace;
     public GameObject ply;
+    [SerializeField] string which = "key";
     float distanceFromCamera = 10f;
     // public Text text;
     // public Collider2D door_collider;
@@ -14,7 +15,13 @@ public class itemScript : MonoBehaviour{
     void OnTriggerEnter2D(Collider2D other){
         if (other.name == "Character") {
             Debug.Log("Pegando item");
-            other.GetComponent<playerMovement>().haveKey = true;
+            if(which == "key") other.GetComponent<playerMovement>().haveKey = true;
+            if(which == "eye") other.GetComponent<playerMovement>().vision = true;
+            if(which == "time"){
+                // insert time
+            }
+            if(which == "life") other.GetComponent<playerMovement>().heart = 3;
+            
             Destroy(gameObject);
         }
     }

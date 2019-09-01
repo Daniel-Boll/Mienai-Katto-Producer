@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour {
     Vector2 movement;
     public bool haveKey = false;
     public int heart = 3;
+    public bool vision = false;
     SpriteRenderer falaSR;
     float falaCooldown = 0f;
 
