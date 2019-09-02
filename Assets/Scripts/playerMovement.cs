@@ -6,6 +6,7 @@ using System;
 public class playerMovement : MonoBehaviour {
 
     public float moveSpeed = 5f;
+    [SerializeField] GameObject music;
     public Rigidbody2D rb;
     Animator animator;
     Vector2 movement;
@@ -22,10 +23,18 @@ public class playerMovement : MonoBehaviour {
 
     void Awake(){
         int n = GameObject.FindGameObjectsWithTag("Player").Length;
+        int n_m = GameObject.FindGameObjectsWithTag("Music").Length;
+
         if (n == 1){
             DontDestroyOnLoad(gameObject);
         }else{
             Destroy(gameObject);
+        }
+        
+        if (n_m == 1){
+            DontDestroyOnLoad(music);
+        }else{
+            Destroy(music);
         }
     } 
 

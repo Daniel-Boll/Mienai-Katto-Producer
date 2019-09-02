@@ -9,7 +9,6 @@ public class ocultRoom : MonoBehaviour{
     public GameObject ply;
     public string scene = "Scene1.5";
     float distanceFromCamera = 10f;
-    
 
     void Start(){
         ply = GameObject.FindGameObjectWithTag("Player");

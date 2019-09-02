@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Aluno
+  - Music
   layers:
   - Default
   - TransparentFX
