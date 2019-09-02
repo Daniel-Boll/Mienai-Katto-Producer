@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ply: {fileID: 3796341237726908921}
-  scene: Win
+  scene: Scene3.3
   needKey: 1
 --- !u!50 &119488724
 Rigidbody2D:
@@ -691,7 +691,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 270351783, guid: 82f834e45905da649b98e7bd1a9579b9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865375343983304128, guid: 82f834e45905da649b98e7bd1a9579b9,
+        type: 3}
+      propertyPath: time
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f834e45905da649b98e7bd1a9579b9, type: 3}
@@ -30205,12 +30210,12 @@ PrefabInstance:
     - target: {fileID: 4056440372683642563, guid: 0541e8bad36305c4fa3175a018a84c1b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.9
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: 4056440372683642563, guid: 0541e8bad36305c4fa3175a018a84c1b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 56.56
+      value: 52.07
       objectReference: {fileID: 0}
     - target: {fileID: 4056440372683642563, guid: 0541e8bad36305c4fa3175a018a84c1b,
         type: 3}

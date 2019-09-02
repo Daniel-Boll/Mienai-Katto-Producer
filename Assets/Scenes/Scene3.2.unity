@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 148748155}
   - component: {fileID: 148748154}
   - component: {fileID: 148748153}
+  - component: {fileID: 148748156}
   m_Layer: 0
   m_Name: cookies
   m_TagString: Untagged
@@ -218,6 +219,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &148748156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148748152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704a3b8b9b946d14980b3e6963b69dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  closeEnought: 0.6
+  distance: 0
+  gibeNota: 1
+  angle: 0
 --- !u!1 &171561242
 GameObject:
   m_ObjectHideFlags: 0
