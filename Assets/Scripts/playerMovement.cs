@@ -99,6 +99,10 @@ public class playerMovement : MonoBehaviour {
         gm.updateHealth(heart);
     }
 
+    public void GetVision(){
+        gm.setVision();
+    }
+
     public void causarDano() {
         if (!invencivel) {
             heart--;

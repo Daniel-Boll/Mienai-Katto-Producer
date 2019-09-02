@@ -16,7 +16,7 @@ public class itemScript : MonoBehaviour{
         if (other.name == "Character") {
             Debug.Log("Pegando item");
             if(which == "key") other.GetComponent<playerMovement>().GetKey(); 
-            if(which == "eye") other.GetComponent<playerMovement>().vision = true;
+            if(which == "eye") other.GetComponent<playerMovement>().GetVision();
             if(which == "time"){
                 other.GetComponent<playerMovement>().increaseTimer();
             }

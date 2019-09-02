@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject EmptyHeart;
     [SerializeField] GameObject HaveKey;
     [SerializeField] Text TextTime;
+    [SerializeField] GameObject vision1;
+    [SerializeField] GameObject vision2;
+    [SerializeField] GameObject vision3;
 
     [Header("Game Configs")]
     [SerializeField] float time = 300;//seconds
@@ -27,6 +30,12 @@ public class GameManager : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
+    }
+
+    public void setVision(){
+        vision1.SetActive(true);
+        vision2.SetActive(true);
+        vision3.SetActive(true);
     }
 
     void Update() {

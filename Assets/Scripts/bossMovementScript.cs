@@ -8,6 +8,7 @@ public class bossMovementScript : MonoBehaviour {
     [SerializeField] float closeEnought = .6f;
     [SerializeField] float distance;
     [SerializeField] float angle = 0;
+    [SerializeField] GameObject player;
     private Transform profTransform;
     Rigidbody2D rb;
     Animator animator;
@@ -19,7 +20,7 @@ public class bossMovementScript : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         profTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
+        // falaSR = transform.Find("Fala").GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -61,16 +62,19 @@ public class bossMovementScript : MonoBehaviour {
         // }
     }
 
+
+
     private void Movement() {
         distance = Vector2.Distance(transform.position, profTransform.position);
         if (distance > closeEnought) {
             rb.MovePosition(Vector2.MoveTowards(transform.position,
                 profTransform.position,
                 moveSpeed * Time.fixedDeltaTime));
-            falaSR.color = new Color(1, 1, 1, 0);
+            // falaSR.color = new Color(1, 1, 1, 0);
         }
         if (distance <= closeEnought) {
-            falaSR.color = new Color(1, 1, 1, 1);
+            // falaSR.color = new Color(1, 1, 1, 1);
+            player.GetComponent<playerMovement>().heart = 0;
         }
     }
 
