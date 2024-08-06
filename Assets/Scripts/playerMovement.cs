@@ -50,23 +50,23 @@ public class playerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        if(movement.x == 1){
-            animator.SetInteger("direction", 2);
-        }else
-        if(movement.x == -1){
-            animator.SetInteger("direction", 3);
-        }else
-        if(movement.y == 1){
-            animator.SetInteger("direction", 1);
-        }else
-        if(movement.y == -1){
-            animator.SetInteger("direction", 0);
-        }else {
-            animator.SetInteger("direction", 4);
-        }
+		float moveX = Input.GetAxisRaw("Horizontal");
+	        float moveY = Input.GetAxisRaw("Vertical");
+	
+	        //05.08.2024 - Thiago: Corrige o erro que duplica o movespeed ao clicar em dois botões ao mesmo tempo.
+	        movement = new Vector2(moveX, moveY).normalized; // Normaliza o vetor de movimento
+	
+	        if(moveX == 1){
+	            animator.SetInteger("direction", 2);
+	        }else if(moveX == -1){
+	            animator.SetInteger("direction", 3);
+	        }else if(moveY == 1){
+	            animator.SetInteger("direction", 1);
+	        }else if(moveY == -1){
+	            animator.SetInteger("direction", 0);
+	        }else {
+	            animator.SetInteger("direction", 4);
+	        }
         
         if(heart == 0) {
             gm.SetLastCorridor(SceneManager.GetActiveScene().buildIndex);
